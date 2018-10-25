@@ -1,0 +1,65 @@
+/**
+ * Webpack Configuration for Karma
+ */
+
+const path = require('path');
+
+module.exports = {
+
+  externals: {
+    cheerio: 'window',
+    jsdom: 'window',
+    mocha: 'mocha',
+    'react/addons': true,
+    'react/lib/ReactContext': true,
+    'react/lib/ExecutionEnvironment': true,
+  },
+
+  devtool: 'source-map',
+
+  isparta: {
+    embedSource: true,
+    noAutoWrap: true,
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.json$/,
+        loader: 'json',
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
+      },
+      {
+        test: /\.scss$/,
+        loader: 'css!sass',
+      }
+    ],
+
+    noParse: [/node_modules\/sinon\//],
+
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'isparta',
+        include: path.resolve('src'),
+        exclude: path.resolve('node_modules'),
+      },
+      {
+        test: /\.spec.js$/,
+        loader: 'babel',
+        include: path.resolve('test'),
+        exclude: path.resolve('node_modules'),
+      }
+    ]
+  },
+
+  resolve: {
+    alias: { 'sinon': 'sinon/pkg/sinon' },
+    extensions: ['', '.css', '.js', '.jsx', '.json', '.scss'],
+    modulesDirectories: ['', 'src', 'node_modules'],
+  },
+
+};
