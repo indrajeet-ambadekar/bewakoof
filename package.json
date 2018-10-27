@@ -8,7 +8,7 @@
     "clean": "rm -rf dist coverage",
     "coveralls": "npm run test && cat ./coverage/lcov/lcov.info | coveralls",
     "lint": "node_modules/.bin/eslint ./src",
-    "start": "node server.js",
+    "start": "node webserver.js",
     "watch": "onchange 'src/**/*.**' -- prettier --write {{changed}}",
     "test": "npm run lint && node_modules/.bin/karma start --single-run --no-auto-watch karma.config.js"
   },
@@ -28,9 +28,14 @@
   "author": "indrajeet ambadekar",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-runtime": "^6.9.2",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "react-router-dom": "^4.3.1",
+    "cheerio": "latest",
+    "cors": "^2.8.4",
+    "express": "latest"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
@@ -46,7 +51,7 @@
     "babel-preset-stage-2": "^6.11.0",
     "chai": "^3.5.0",
     "coveralls": "^2.11.11",
-    "css-loader": "^0.23.1",
+    "css-loader": "^0.28.1",
     "enzyme": "^2.4.1",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",
