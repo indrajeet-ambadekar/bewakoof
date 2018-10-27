@@ -7,7 +7,7 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-
+  overflow-x: hidden;
   .text-left {
     text-align: left;
   }
@@ -54,7 +54,7 @@ body {
     }
     .doodle {
       width: 30vw;
-      height: 200px;
+      height: 250px;
       margin: 0 auto;
       background: url(/assets/doodle.gif) center center/100% no-repeat;
       border-radius: 15px;
@@ -92,6 +92,7 @@ body {
     }
     .resultContainer {
       padding-top: 20px;
+      width: 90%;
       .resultRow {
         font-size: 16px;
         padding: 10px 0px;
@@ -120,6 +121,31 @@ body {
         width: 100px;
         margin: 5px;
         background-size: contain;
+      }
+      .col-title {
+        padding-right: 10px;
+      }
+      .innerRow {
+        width: 100%;
+        overflow-x: scroll;
+        display: flex;
+      }
+
+      .innerCol {
+        max-height: 180px;
+        width: 150px;
+        display: inline-block;
+        .wrapper {
+          margin: 12px 15px 5px 0px;
+          font-size: 13px;
+
+          .posterImg {
+            width: 90px;
+          }
+          .col-title {
+            display: none;
+          }
+        }
       }
     }
   }
